@@ -53,10 +53,4 @@ body {
     border-radius: 4px;
   }
 
-.container {
-  display: flex; /* Makes the container a flex container */
-  justify-content: center; /* Horizontally centers content along the main axis (row) */
-  align-items: center; /* Vertically centers content along the cross axis (column) */
-  height: 100vh; /* Sets the container height to the full viewport height */
-}
-  
+
