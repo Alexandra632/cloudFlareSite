@@ -3,13 +3,16 @@ body {
     margin: 0;
     padding: 0;
     background: #fafafa;
-    color: #333;
+    color: #d091df;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   
   header {
-    background: #222;
-    color: #fff;
-    padding: 1em 2em;
+    background: #d091df;
+    color: #2d063a;
+    padding: 10px;
   }
   
   nav {
@@ -30,15 +33,15 @@ body {
   }
   
   main {
-    padding: 2em;
+    padding: 20px;
+    flex-grow: 1;
   }
   
   footer {
-    background: #222;
-    color: #ccc;
+    background:#d091df;
+    color: #2d063a;
     text-align: center;
-    padding: 1em;
-    margin-top: 2em;
+    padding: 10px;
   }
   
   .btn {
