@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alexandra Allen - Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
   <style>
-
-  html, body {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -19,124 +20,105 @@
 
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      width: 100vw;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
       height: 100vh;
+      width: 100vw;
       box-sizing: border-box;
-      margin: 0;
-    }
-
-    .header-item {
-      grid-column: 2 / 4;   
-      grid-row: 2;          
-      background: #222;
-      color: rgba(233, 233, 224, .6);
-      font-size: 3rem;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Inter Tight', sans-serif;
     }
 
     .grid-item {
-      background-color: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: transparent;
     }
 
-    .grid-item img {
-      width: 100%;
+    .header-item {
+      grid-column: 1 / 4; 
+      grid-row: 1;        
+      background: transparent;
+      color: rgba(233, 233, 224, 0.6);
+      font-size: 6rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .image-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
       height: 100%;
+      width: 100%;
+    }
+
+    .image-link img {
+      width: 100%;
+      height: auto;
       object-fit: contain;
     }
 
-    .grid-item a {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .image-link  {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      text-decoration: none;
-      align-items: center;
-    }
-
     .label-below {
+      font-family: 'Poppins', sans-serif;
       font-size: 1em;
-      font-weight: 00;
-      font-family:Verdana, Geneva, Tahoma, sans-serif;
-      padding: 40px 70px;
-      padding-top: 2px;
-      margin-top: 0;
-      line-height: 1;
-      border-radius: 10px;
-      text-align:center;
-      color: rgba(233, 233, 224, .6);
-      text-decoration: none;
+      font-weight: 400;
+      color: rgba(233, 233, 224, 0.7);
+      text-align: center;
+      margin-top: 4px;
     }
-
   </style>
-
 </head>
 <body>
 
   <div class="grid-container" id="grid">
-  <div class="grid-item header-item">Alexandra Allen</div>
+    <div class="grid-item header-item">Alexandra Allen</div>
   </div>
 
   <script>
     const grid = document.getElementById('grid');
 
     const contentMap = {
-      "1-1": { image: 'spikeybutton1.png', link: 'about.html', label: 'About'},
-      "3-3": { image: 'spikeybutton3.png', link: 'projects.html', label: 'Projects' },
-      "1-4": { image: 'spikeybutton2.png', link: 'contact.html' , label: 'Contact'},
-      
+      "3-1": { image: 'spikeybutton1.png', link: 'about.html', label: 'About' },
+      "3-2": { image: 'spikeybutton6.png', link: 'projects.html', label: 'Projects' },
+      "3-3": { image: 'spikeybutton2.png', link: 'contact.html', label: 'Contact' }
     };
 
-    const skipKeys = ['2-2', '2-3'];
+    const skipKeys = ['1-1', '1-2', '1-3']; // Header row
 
-for (let row = 1; row <= 4; row++) {
-  for (let col = 1; col <= 4; col++) {
-    const key = `${row}-${col}`;
-    
-    // Skip header area
-    if (skipKeys.includes(key)) continue;
+    for (let row = 1; row <= 3; row++) {
+      for (let col = 1; col <= 3; col++) {
+        const key = `${row}-${col}`;
+        if (skipKeys.includes(key)) continue;
 
-    const cell = document.createElement('div');
-    cell.className = 'grid-item';
+        const cell = document.createElement('div');
+        cell.className = 'grid-item';
 
-    const content = contentMap[key];
-    if (content) {
-      const anchor = document.createElement('a');
-      anchor.href = content.link;
-      anchor.className = 'image-link';
+        const content = contentMap[key];
+        if (content) {
+          const anchor = document.createElement('a');
+          anchor.href = content.link;
+          anchor.className = 'image-link';
 
-      const img = document.createElement('img');
-      img.src = content.image;
-      img.alt = 'Grid Image';
+          const img = document.createElement('img');
+          img.src = content.image;
+          img.alt = content.label;
 
-      const label = document.createElement('span');
-      label.className = 'label-below';
-      label.textContent = content.label || '';
+          const label = document.createElement('span');
+          label.className = 'label-below';
+          label.textContent = content.label;
 
-      anchor.appendChild(img);
-      anchor.appendChild(label);
-      cell.appendChild(anchor);
+          anchor.appendChild(img);
+          anchor.appendChild(label);
+          cell.appendChild(anchor);
+        }
+
+        grid.appendChild(cell);
+      }
     }
-
-    grid.appendChild(cell);
-  }
-}
-
   </script>
 
 </body>

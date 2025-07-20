@@ -1,22 +1,16 @@
 body {
   background-image: url('websiteBackground.png');
   background-position:center center;
-  background-repeat: ;
   background-size: cover; /* contain */
   width: 100vw;
   height: 100vh;
 
 }
 
-body.comme-myMainFont {
-  font-family: "Comme", sans-serif;
-  font-optical-sizing: auto;
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #cfd3da
-  
 }
-
-
 
 
