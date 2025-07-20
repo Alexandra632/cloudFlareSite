@@ -2,35 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alexandra Allen - Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comme:wght@100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+
+  html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .header-item {
+      grid-column: 2 / 4;   
+      grid-row: 2;          
+      background: #222;
+      color: rgba(233, 233, 224, .6);
+      font-size: 3rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter Tight', sans-serif;
+    }
+
+    .grid-item {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .grid-item a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-link  {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      text-decoration: none;
+      align-items: center;
+    }
+
+    .label-below {
+      font-size: 1em;
+      font-weight: 00;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      padding: 40px 70px;
+      padding-top: 2px;
+      margin-top: 0;
+      line-height: 1;
+      border-radius: 10px;
+      text-align:center;
+      color: rgba(233, 233, 224, .6);
+      text-decoration: none;
+    }
+
+  </style>
 
 </head>
-<body class="comme-myMainFont">
+<body>
 
-    <header>
-      <h1 class="comme-myMainFont">Alexandra Allen.</p>
-    </header>
- 
-    <main>
+  <div class="grid-container" id="grid">
+  <div class="grid-item header-item">Alexandra Allen</div>
+  </div>
 
-      <ul>
-      <li><a href="about.html">
-        <img src="spikeybutton1.png" alt="About" style="padding-left: 10px;">
-      </a></li>
+  <script>
+    const grid = document.getElementById('grid');
 
-      <li><a href="projects.html">
-        <img src="spikeybutton3.png" alt="Projects" style="padding-left: 30px;">
-      </a></li>
-      <li><a href="contact.html">
-        <img src="spikeybutton2.png" alt="Contact">
-      </a></li>
-      </ul>
-    </main>
+    const contentMap = {
+      "1-1": { image: 'spikeybutton1.png', link: 'about.html', label: 'About'},
+      "3-3": { image: 'spikeybutton3.png', link: 'projects.html', label: 'Projects' },
+      "1-4": { image: 'spikeybutton2.png', link: 'contact.html' , label: 'Contact'},
+      
+    };
 
+    const skipKeys = ['2-2', '2-3'];
+
+for (let row = 1; row <= 4; row++) {
+  for (let col = 1; col <= 4; col++) {
+    const key = `${row}-${col}`;
+    
+    // Skip header area
+    if (skipKeys.includes(key)) continue;
+
+    const cell = document.createElement('div');
+    cell.className = 'grid-item';
+
+    const content = contentMap[key];
+    if (content) {
+      const anchor = document.createElement('a');
+      anchor.href = content.link;
+      anchor.className = 'image-link';
+
+      const img = document.createElement('img');
+      img.src = content.image;
+      img.alt = 'Grid Image';
+
+      const label = document.createElement('span');
+      label.className = 'label-below';
+      label.textContent = content.label || '';
+
+      anchor.appendChild(img);
+      anchor.appendChild(label);
+      cell.appendChild(anchor);
+    }
+
+    grid.appendChild(cell);
+  }
+}
+
+  </script>
 
 </body>
 </html>
+

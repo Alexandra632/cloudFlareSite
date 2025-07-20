@@ -1,10 +1,9 @@
 body {
-  background-image: url('websiteBackground.jpg');
-  background-color: #000;
+  background-image: url('websiteBackground.png');
   background-position:center center;
-  background-repeat: no-repeat;
+  background-repeat: ;
   background-size: cover; /* contain */
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 
 }
@@ -17,5 +16,7 @@ body.comme-myMainFont {
   color: #cfd3da
   
 }
+
+
 
 
