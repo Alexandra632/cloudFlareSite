@@ -7,9 +7,10 @@ body {
 
 }
 
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
+.merriweather-sans-generalFont {
+  font-family: "Merriweather Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -18,4 +19,14 @@ body {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+}
+
+
+.roboto-generalFont {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
