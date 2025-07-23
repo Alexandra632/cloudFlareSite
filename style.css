@@ -1,10 +1,9 @@
 body {
   background-image: url('websiteBackground.png');
   background-position:center center;
-  background-size: cover; /* contain */
+  background-size: cover; 
   width: 100vw;
   height: 100vh;
-
 }
 
 .merriweather-sans-generalFont {
@@ -22,11 +21,8 @@ body {
 }
 
 
-.roboto-generalFont {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
+.nanum-gothic-regular {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }

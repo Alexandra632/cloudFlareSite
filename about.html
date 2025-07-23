@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Alexandra Allen - About Me </title>
+  <title>Alexandra Allen - About Me</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Nanum+Gothic&display=swap" rel="stylesheet">
+
   <style>
+body {
+    margin: 0;
+    font-family: "Nanum Gothic", sans-serif;
+    background-color: #121212;
+    color: rgba(233, 233, 224, 0.9);
+}
 
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* spans the entire window */
+    width: 100%;
     display: flex;
-    justify-content: flex-start; /* left-align the menu */
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* subtle tint for visibility */
+    background-color: rgba(102, 98, 98, 0.2);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     z-index: 1000;
 }
 
@@ -27,10 +34,9 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #ffffff; /* white text */
     padding: 8px 12px;
     border-radius: 8px;
-    margin-right: 10px; /* spacing between links */
+    margin-right: 10px; 
     transition: background-color 0.2s, transform 0.2s;
 }
 
@@ -44,10 +50,8 @@
     height: 32px;
     object-fit: contain;
     margin-right: 10px;
-    
 }
 
-/* Center icon smaller */
 .center-icon {
     height: 35px;
 }
@@ -55,34 +59,129 @@
 .nav-label {
     font-size: 16px;
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
     color: rgba(233, 233, 224, 0.7);
 }
 
-/* Offset content so it doesn't hide under fixed navbar */
 .content {
-    padding-top: 70px;
+    padding-top: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-</style>
+.page-intro {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    font-family: "Nanum Gothic", sans-serif;
+    color: rgba(233, 233, 224, 0.7);
+    line-height: 1.6;
+    font-size: 16px;
+    text-align: justify;
+}
 
-</head>
+.two-column {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    min-width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.left-section img {
+    max-width: 75%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.right-section a {
+    display: inline-block; 
+    margin-top: 30px; 
+    position: relative;
+    cursor: pointer;
+}
+
+.right-section img {
+    max-width: 95%; 
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+/* Aura Glow Effect */
+.right-section a::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.15) 0%, rgba(0,0,0,0) 70%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 0;
+}
+
+.right-section a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.right-section a:hover img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+  </style>
+</head> 
+
 <body>
-  <header class="navbar">
-  <nav class="navbar">
-    <a href="index.html" class="nav-link">
-        <img src="spottySquid.png" alt="Home" class="nav-icon"/>
-        <span class="nav-label">Home</span>
-    </a>
-    <a href="projects.html" class="nav-link center-link">
-        <img src="whitesquid.png" alt="Projects" class="nav-icon center-icon"/>
-        <span class="nav-label">Projects</span>
-    </a>
-    <a href="contact.html" class="nav-link">
-        <img src="bluesquid.png" alt="Contact" class="nav-icon"/>
-        <span class="nav-label">Contact</span>
-    </a>
-</nav>
-</header>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-link">
+          <img src="spottySquid.png" alt="Home" class="nav-icon"/>
+          <span class="nav-label">Home</span>
+      </a>
+      <a href="projects.html" class="nav-link center-link">
+          <img src="whitesquid.png" alt="Projects" class="nav-icon center-icon"/>
+          <span class="nav-label">Projects</span>
+      </a>
+      <a href="contact.html" class="nav-link">
+          <img src="bluesquid.png" alt="Contact" class="nav-icon"/>
+          <span class="nav-label">Contact</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h2 class="page-intro">
+      Unusually for autotrophic organisms, diatoms possess a urea cycle, a feature that they share with animals, although this cycle is used to different metabolic ends in diatoms. The family Rhopalodiaceae also possess a cyanobacterial endosymbiont called a spheroid body. This endosymbiont has lost its photosynthetic properties, but has kept its ability to perform nitrogen fixation, allowing the diatom to fix atmospheric nitrogen. Other diatoms in symbiosis with nitrogen-fixing cyanobacteria are among the genera Hemiaulus, Rhizosolenia and Chaetoceros.
+    </h2>
+    <div class="two-column">
+      <section class="left-section">
+        <img src="bestPic.png" alt="Photo of me">
+      </section>
+      <section class="right-section">
+        <a href="AlexandraAllen_resume_July2025.pdf" target="_blank">
+          <img src="bug4.png" alt="See My Resume">
+        </a>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
+
