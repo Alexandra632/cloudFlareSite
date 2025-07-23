@@ -9,16 +9,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Nanum+Gothic&display=swap" rel="stylesheet">
   <style>
 
+.comingSoon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 1.2rem;
+    color: rgba(233, 233, 224, 0.7);
+    background: transparent;
+    padding: 200px;
+    text-align: center;
+}
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* spans the entire window */
+    width: 100%; 
     display: flex;
-    justify-content: flex-start; /* left-align the menu */
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* subtle tint for visibility */
     -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
 }
@@ -27,10 +37,10 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #ffffff; /* white text */
+    color: rgba(233, 233, 224, 0.7);
     padding: 8px 12px;
     border-radius: 8px;
-    margin-right: 10px; /* spacing between links */
+    margin-right: 10px; 
     transition: background-color 0.2s, transform 0.2s;
 }
 
@@ -44,10 +54,8 @@
     height: 32px;
     object-fit: contain;
     margin-right: 10px;
-    
 }
 
-/* Center icon smaller */
 .center-icon {
     height: 35px;
 }
@@ -59,7 +67,6 @@
     color: rgba(233, 233, 224, 0.7);
 }
 
-/* Offset content so it doesn't hide under fixed navbar */
 .content {
     padding-top: 70px;
 }
@@ -71,11 +78,11 @@
   <header class="navbar">
   <nav class="navbar">
     <a href="index.html" class="nav-link">
-        <img src="whitesquid.png" alt="Home" class="nav-icon"/>
+        <img src="whitesquid.png" alt="Home" class="nav-icon center-icon"/>
         <span class="nav-label">Home</span>
     </a>
     <a href="about.html" class="nav-link center-link">
-        <img src="spottySquid.png" alt="About" class="nav-icon center-icon"/>
+        <img src="spottySquid.png" alt="About" class="nav-icon"/>
         <span class="nav-label">About</span>
     </a>
     <a href="contact.html" class="nav-link">
@@ -83,6 +90,10 @@
         <span class="nav-label">Contact</span>
     </a>
 </nav>
+
+<div class="comingSoon">Coming soon!</div>
+
 </header>
+
 </body>
 </html>

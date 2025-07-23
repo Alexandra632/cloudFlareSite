@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Alexandra Allen - About Me </title>
+  <title>Alexandra Allen - About Me</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Nanum+Gothic&display=swap" rel="stylesheet">
+
   <style>
+body {
+    margin: 0;
+    font-family: "Nanum Gothic", sans-serif;
+    background-color: #121212;
+    color: rgba(233, 233, 224, 0.7);
+}
 
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* spans the entire window */
+    width: 100%; 
     display: flex;
-    justify-content: flex-start; /* left-align the menu */
+    justify-content: flex-start; 
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.2); /* subtle tint for visibility */
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     z-index: 1000;
 }
 
@@ -27,10 +34,10 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #ffffff; /* white text */
+    color: rgba(233, 233, 224, 0.7);
     padding: 8px 12px;
     border-radius: 8px;
-    margin-right: 10px; /* spacing between links */
+    margin-right: 10px;
     transition: background-color 0.2s, transform 0.2s;
 }
 
@@ -44,10 +51,8 @@
     height: 32px;
     object-fit: contain;
     margin-right: 10px;
-    
 }
 
-/* Center icon smaller */
 .center-icon {
     height: 35px;
 }
@@ -59,30 +64,121 @@
     color: rgba(233, 233, 224, 0.7);
 }
 
-/* Offset content so it doesn't hide under fixed navbar */
 .content {
-    padding-top: 70px;
+    padding-top: 100px;
+    text-align: center;
 }
 
-</style>
+.email-button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 50px;
+}
 
+.email-button img {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.email-button::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 140%;
+    height: 140%;
+    transform: translate(-50%, -50%) scale(0.9);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(173, 216, 230, 0.15) 0%, rgba(0,0,0,0) 45%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 0;
+}
+
+.email-button:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.email-button:hover img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+.toast {
+    position: fixed;
+    top: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: rgba(233, 233, 224, 0.9);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+  </style>
 </head>
+
 <body>
   <header class="navbar">
-  <nav class="navbar">
-    <a href="index.html" class="nav-link">
-        <img src="bluesquid.png" alt="Home" class="nav-icon"/>
-        <span class="nav-label">Home</span>
-    </a>
-    <a href="about.html" class="nav-link center-link">
-        <img src="spottySquid.png" alt="About" class="nav-icon center-icon"/>
-        <span class="nav-label">About</span>
-    </a>
-    <a href="projects.html" class="nav-link">
-        <img src="whitesquid.png" alt="Projects" class="nav-icon"/>
-        <span class="nav-label">Projects</span>
-    </a>
-</nav>
-</header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-link">
+          <img src="bluesquid.png" alt="Home" class="nav-icon"/>
+          <span class="nav-label">Home</span>
+      </a>
+      <a href="about.html" class="nav-link center-link">
+          <img src="spottySquid.png" alt="About" class="nav-icon"/>
+          <span class="nav-label">About</span>
+      </a>
+      <a href="projects.html" class="nav-link">
+          <img src="whitesquid.png" alt="Projects" class="nav-icon center-icon"/>
+          <span class="nav-label">Projects</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="content">
+
+    <div class="email-button" id="emailButton">
+      <img src="emailbug.png" alt="Email Me">
+    
+    </div>
+  </main>
+
+  <div id="toast" class="toast">Copied to clipboard!</div>
+
+  <script>
+    const emailButton = document.getElementById('emailButton');
+    const toast = document.getElementById('toast');
+
+    emailButton.addEventListener('click', () => {
+        const email = 'aallen632@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+            showToast();
+        });
+    });
+
+    function showToast() {
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 1500);
+    }
+  </script>
 </body>
 </html>
